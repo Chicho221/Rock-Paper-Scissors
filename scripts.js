@@ -1,8 +1,8 @@
 //Prompt for user to enter his choice
-function playerSelection(){
-    prompt("Choose: Rock, Paper, Scissors.");
+let playerChoice;
+function getPlayerChoice(){
+    playerChoice = prompt("Choose: Rock, Paper, Scissors.");
 }
-//Check if it's not null, something else or int
 //Tell computer to choose random number from 1 to 3 and change it into a string
 let computerChoice = 0;
 function getComputerChoice(){
@@ -20,4 +20,50 @@ function getComputerChoice(){
     }
 }
 //Play a round and check who won
-
+function playRound(){
+    getPlayerChoice();
+    getComputerChoice();
+//Check IF player choice is rock
+    if(playerChoice === "Rock"){
+//Check what computer picked
+        switch(computerChoice){
+            case "Rock":
+                alert("Looks like a draw!");
+            break;
+            case "Paper":
+                alert("Looks that you lost.");
+            break;
+            case "Scissors":
+                alert("Looks like you won!");
+            break;
+        }
+//Check IF player choice is paper
+    } else if(playerChoice === "Paper"){
+//Check what computer picked
+        switch(computerChoice){
+            case "Rock":
+                alert("Looks like a draw!");
+            break;
+            case "Paper":
+                alert("Looks that you lost.");
+            break;
+            case "Scissors":
+                alert("Looks like you won!");
+            break;
+        }
+//Check IF player choice is scissors
+    }else{
+//Check what computer picked
+        switch(computerChoice){
+            case "Rock":
+                alert("Looks like a draw!");
+            break;
+            case "Paper":
+                alert("Looks that you lost.");
+            break;
+            case "Scissors":
+                alert("Looks like you won!");
+            break;
+        }
+    }
+}
