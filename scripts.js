@@ -1,5 +1,7 @@
 //Prompt for user to enter his choice
-playerSelection = prompt("Choose: Rock, Paper, Scissors.");
+function playerSelection(){
+    prompt("Choose: Rock, Paper, Scissors.");
+}
 //Check if it's not null, something else or int
 //Tell computer to choose random number from 1 to 3 and change it into a string
 let computerChoice = 0;
@@ -17,5 +19,5 @@ function getComputerChoice(){
         break;
     }
 }
-//Check who won
+//Play a round and check who won
 
