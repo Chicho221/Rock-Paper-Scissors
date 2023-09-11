@@ -2,11 +2,7 @@ let playerChoice;
 let computerChoice;
 let scorePlayer = 0;
 let scoreComputer = 0;
-/*Prompt for user to enter his choice
-function getPlayerChoice(){
-    playerChoice = prompt("Choose: Rock, Paper, Scissors.");
-    playerChoice = playerChoice.toLowerCase();
-}*/
+
 //Tell computer to choose random number from 1 to 3 and change it into a string
 function getComputerChoice(){
     computerChoice = Math.floor(Math.random() * 3 ) + 1;
@@ -22,48 +18,57 @@ function getComputerChoice(){
         break;
     }
 }
-
+const roundScore = document.createElement('p');
 function playRound(){ //Play a round and check who won
     getComputerChoice();
     if(playerChoice === "rock"){
         switch(computerChoice){
             case "rock":
-                alert("Looks like a draw!");
+                roundScore.textContent= 'Looks like a draw!';
+                result.appendChild(roundScore);
             break;
             case "paper":
-                alert("Looks that you lost.");
+                roundScore.textContent= 'Looks that you lost.';
+                result.appendChild(roundScore);
                 scoreComputer++;
             break;
             case "scissors":
-                alert("Looks like you won!");
+                roundScore.textContent= 'Looks like you won!';
+                result.appendChild(roundScore);
                 scorePlayer++;
             break;
         }
     } else if(playerChoice === "paper"){
         switch(computerChoice){
             case "paper":
-                alert("Looks like a draw!");
+                roundScore.textContent= 'Looks like a draw!';
+                result.appendChild(roundScore);
             break;
             case "scissors":
-                alert("Looks that you lost.");
+                roundScore.textContent= 'Looks that you lost.';
+                result.appendChild(roundScore);
                 scoreComputer++;
             break;
             case "rock":
-                alert("Looks like you won!");
+                roundScore.textContent= 'Looks like you won!';
+                result.appendChild(roundScore);
                 scorePlayer++;
             break;
         }
     }else{
         switch(computerChoice){
             case "scissors":
-                alert("Looks like a draw!");
+                roundScore.textContent= 'Looks like a draw!';
+                result.appendChild(roundScore);
             break;
             case "rock":
-                alert("Looks that you lost.");
+                roundScore.textContent= 'Looks that you lost.';
+                result.appendChild(roundScore);
                 scoreComputer++;
             break;
             case "paper":
-                alert("Looks like you won!");
+                roundScore.textContent= 'Looks like you won!';
+                result.appendChild(roundScore);
                 scorePlayer++;
             break;
         }
