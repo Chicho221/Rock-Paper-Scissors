@@ -32,8 +32,6 @@ function playRound(){
         switch(computerChoice){
             case "rock":
                 alert("Looks like a draw!");
-                scoreComputer++;
-                scorePlayer++;
             break;
             case "paper":
                 alert("Looks that you lost.");
@@ -50,8 +48,6 @@ function playRound(){
         switch(computerChoice){
             case "paper":
                 alert("Looks like a draw!");
-                scoreComputer++;
-                scorePlayer++;
             break;
             case "scissors":
                 alert("Looks that you lost.");
@@ -68,8 +64,6 @@ function playRound(){
         switch(computerChoice){
             case "scissors":
                 alert("Looks like a draw!");
-                scoreComputer++;
-                scorePlayer++;
             break;
             case "rock":
                 alert("Looks that you lost.");
@@ -82,19 +76,42 @@ function playRound(){
         }
     }
 }
-//Create function that plays 5 times, keeps a score and reports a winner
+
+const result = document.querySelector('#result');
+const sumScore = document.createElement('p');
 
 function game(){
-    resetScore()
-    for (let i = 0;i <= 4; i++) {
-        playRound();
-    }
-    alert("Player " + scorePlayer + ":" + scoreComputer + " Computer");
-    console.log("Player " + scorePlayer + ":" + scoreComputer + " Computer");
-}
-//Resets the score
+    playRound();
 
-function resetScore(){
-    scoreComputer = 0;
-    scorePlayer = 0;
+    sumScore.textContent = `Player ${scorePlayer} : ${scoreComputer} Computer`;
+    result.appendChild(sumScore);
+    console.log(sumScore);
+    annouceWinner();
 }
+
+function resetScore(){ //Resets the score
+        scoreComputer = 0;
+        scorePlayer = 0;
+}
+
+const winner = document.createElement('p');
+function annouceWinner(){ //Checks if anyone got 5 points
+
+    if(scorePlayer == 5){
+        winner.textContent = ('The winner is The Player!');
+        result.appendChild(winner)
+        resetScore();
+    }else if (scoreComputer == 5){
+        winner.textContent = ('The winner is The Computer!');
+        result.appendChild(winner)
+        resetScore();
+    }else{
+        winner.textContent = ('')
+    }
+    
+}
+
+
+const btn = document.querySelector('#btn');
+
+btn.addEventListener('click', game); // onclick runs game function
