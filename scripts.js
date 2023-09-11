@@ -2,11 +2,11 @@ let playerChoice;
 let computerChoice;
 let scorePlayer = 0;
 let scoreComputer = 0;
-//Prompt for user to enter his choice
+/*Prompt for user to enter his choice
 function getPlayerChoice(){
     playerChoice = prompt("Choose: Rock, Paper, Scissors.");
     playerChoice = playerChoice.toLowerCase();
-}
+}*/
 //Tell computer to choose random number from 1 to 3 and change it into a string
 function getComputerChoice(){
     computerChoice = Math.floor(Math.random() * 3 ) + 1;
@@ -22,13 +22,10 @@ function getComputerChoice(){
         break;
     }
 }
-//Play a round and check who won
-function playRound(){
-    getPlayerChoice();
+
+function playRound(){ //Play a round and check who won
     getComputerChoice();
-//Check IF player choice is rock
     if(playerChoice === "rock"){
-//Check what computer picked
         switch(computerChoice){
             case "rock":
                 alert("Looks like a draw!");
@@ -42,9 +39,7 @@ function playRound(){
                 scorePlayer++;
             break;
         }
-//Check IF player choice is paper
     } else if(playerChoice === "paper"){
-//Check what computer picked
         switch(computerChoice){
             case "paper":
                 alert("Looks like a draw!");
@@ -58,9 +53,7 @@ function playRound(){
                 scorePlayer++;
             break;
         }
-//Check IF player choice is scissors
     }else{
-//Check what computer picked
         switch(computerChoice){
             case "scissors":
                 alert("Looks like a draw!");
@@ -96,7 +89,6 @@ function resetScore(){ //Resets the score
 
 const winner = document.createElement('p');
 function annouceWinner(){ //Checks if anyone got 5 points
-
     if(scorePlayer == 5){
         winner.textContent = ('The winner is The Player!');
         result.appendChild(winner)
@@ -107,11 +99,23 @@ function annouceWinner(){ //Checks if anyone got 5 points
         resetScore();
     }else{
         winner.textContent = ('')
-    }
-    
+    }  
 }
 
 
-const btn = document.querySelector('#btn');
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissors = document.querySelector('#scissors');
 
-btn.addEventListener('click', game); // onclick runs game function
+btnRock.addEventListener('click', () =>{
+    playerChoice = btnRock.id;
+    game();
+}); // onclick runs game function with value rock
+btnPaper.addEventListener('click', () =>{
+    playerChoice = btnPaper.id;
+    game();
+}); // onclick runs game function with value paper
+btnScissors.addEventListener('click', () =>{
+    playerChoice = btnScissors.id;
+    game();
+}); // onclick runs game function with value scissors
